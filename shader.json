@@ -2,8 +2,8 @@
   "ver": "0.1",
   "info": {
     "id": "",
-    "name": "first gator",
-    "description": "",
+    "name": "verdantbrot",
+    "description": "a mandelbrot family visualized in an interesting way",
     "tags": []
   },
   "renderpass": [
