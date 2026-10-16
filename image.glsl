@@ -17,8 +17,10 @@ float traj(vec2 z, vec2 c) {
     return -1.;
 }
 
-void mainImage(in vec2 fragCoord, out vec4 fragColor)
+void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
     vec2 uv = fragCoord / iResolution.xy;
-    fragColor = vec4(0);
+    vec2 mouse = iMouse / iResolution.xy;
+
+    vec2 zstart = mouse * 2. - 1.;
 }
