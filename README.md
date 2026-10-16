@@ -10,7 +10,7 @@ Play it: https://shadergator.hackclub.com/ships/6
 | --- | --- |
 | `image.glsl` | The code of the Image tab. |
 | `shader.json` | The whole shader in Shadertoy's export format. |
-| `screenshot.png` | The screenshot. |
+| `verdantbrot.png` | The screenshot. |
 
 ## Paste it into Shadertoy
 1. Open https://www.shadertoy.com/new and sign in.
