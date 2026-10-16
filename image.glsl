@@ -12,7 +12,7 @@ float traj(vec2 z, vec2 c) {
         vec2 zprev = z;
         z = vec2(pow(z.x, 2.) - pow(z.y, 2.), z.x * z.y * 2.);
         z += c;
-        float ratio = z.x / zprev.x;
+        float ratio = (z.x / zprev.x) * (z.y / zprev.y);
         maxratio = max(maxratio, ratio);
         if (min(abs(z.x), abs(z.y)) >= 4.) {
             return 1. / maxratio;
@@ -32,7 +32,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     vec3 color = vec3(0);
     float trajectory = traj(z, c);
     if (trajectory >= 0.) {
-        color = vec3(1) + (vec3(0, 0, 1) - vec3(1)) * pow(trajectory, 0.5);
+        color = vec3(1) + (vec3(0, 0, 1) - vec3(1)) * pow(trajectory, 0.125);
     }
 
     fragColor.rgb = color;
