@@ -20,7 +20,16 @@ float traj(vec2 z, vec2 c) {
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
     vec2 uv = fragCoord / iResolution.xy;
-    vec2 mouse = iMouse / iResolution.xy;
+    vec2 mouse = iMouse.xy / iResolution.xy;
 
-    vec2 zstart = mouse * 2. - 1.;
+    vec2 z = mouse * 2. - 1.;
+    vec2 c = uv * 4. - 8.;
+
+    vec3 color = vec3(0);
+    float trajectory = traj(z, c);
+    if (trajectory >= 0.) {
+        color = vec3(1);
+    }
+
+    fragColor.rgb = color;
 }
