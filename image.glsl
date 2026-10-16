@@ -23,12 +23,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     vec2 mouse = iMouse.xy / iResolution.xy;
 
     vec2 z = mouse * 2. - 1.;
-    vec2 c = uv * 4. - 2.;
+    vec2 c = uv * 4. - vec2(3., 2.);
 
     vec3 color = vec3(0);
     float trajectory = traj(z, c);
     if (trajectory >= 0.) {
-        color = vec3(trajectory);
+        color = vec3(1) + (vec3(0, 0, 1) - vec3(1)) * pow(trajectory, 0.5);
     }
 
     fragColor.rgb = color;
