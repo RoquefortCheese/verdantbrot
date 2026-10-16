@@ -7,11 +7,15 @@
 // fragColor: output color
 
 float traj(vec2 z, vec2 c) {
+    float minratio = 256.;
     for (int i = 0; i < 256; i++) {
+        vec2 zprev = z;
         z = vec2(pow(z.x, 2.) - pow(z.y, 2.), z.x * z.y * 2.);
         z += c;
+        float ratio = length(z) / length(zprev);
+        minratio = min(minratio, ratio);
         if (min(abs(z.x), abs(z.y)) >= 4.) {
-            return float(i) / 256.;
+            return minratio;
         }
     }
     return -1.;
